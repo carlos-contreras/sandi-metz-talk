@@ -8,7 +8,11 @@ class House
   end
 
   def phrase(number)
-    data.last(number).join(" ")
+    parts(number).join(" ")
+  end
+
+  def parts(number)
+    data.last(number)
   end
 
   def data
@@ -32,5 +36,11 @@ end
 class RandomHouse < House
   def data
     @data ||= super.shuffle
+  end
+end
+
+class EchoHouse < House
+  def parts(number)
+    super.zip(super).flatten
   end
 end
