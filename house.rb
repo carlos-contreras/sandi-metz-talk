@@ -28,3 +28,9 @@ class House
     ]
   end
 end
+
+class RandomHouse < House
+  def data
+    @data ||= super.shuffle
+  end
+end
